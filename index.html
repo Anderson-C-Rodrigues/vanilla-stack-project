@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Task Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">📋 Task Manager</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="tarefas.html">Tarefas</a></li>
+                        <li><a href="categorias.html">Categorias</a></li>
+                        <li><a href="relatorios.html">Relatórios</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Dashboard</h1>
+                <p>Bem-vindo ao seu gestor de tarefas!</p>
+            </div>
+
+            <!-- Estatísticas -->
+            <div class="stats-grid" id="stats-container">
+                <!-- Preenchido por JavaScript -->
+            </div>
+
+            <!-- Seção de Itens Recentes -->
+            <div class="recent-section">
+                <div class="recent-card">
+                    <div class="recent-card-header">
+                        <h3>📝 Tarefas Recentes</h3>
+                    </div>
+                    <div id="recent-tasks">
+                        <!-- Preenchido por JavaScript -->
+                    </div>
+                </div>
+
+                <div class="recent-card">
+                    <div class="recent-card-header">
+                        <h3>🏷️ Categorias</h3>
+                    </div>
+                    <div id="recent-categories">
+                        <!-- Preenchido por JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/storage.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
