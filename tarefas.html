@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas - Task Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tarefas.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">📋 Task Manager</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="tarefas.html">Tarefas</a></li>
+                        <li><a href="categorias.html">Categorias</a></li>
+                        <li><a href="relatorios.html">Relatórios</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="tarefas-header">
+                <h1>Gerenciar Tarefas</h1>
+                <div class="tarefas-controls">
+                    <div class="search-box">
+                        <input type="text" id="search-tasks" placeholder="🔍 Buscar tarefas...">
+                    </div>
+                    <button class="btn btn-primary" onclick="document.getElementById('task-form').scrollIntoView({ behavior: 'smooth' })">
+                        + Nova Tarefa
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filters">
+                <div class="filters-grid">
+                    <div class="form-group">
+                        <label>Filtrar por Categoria</label>
+                        <select id="filter-category"></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Filtrar por Status</label>
+                        <select id="filter-status">
+                            <option value="">Todos</option>
+                            <option value="pendente">Pendente</option>
+                            <option value="completada">Completada</option>
+                            <option value="cancelada">Cancelada</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Filtrar por Prioridade</label>
+                        <select id="filter-priority">
+                            <option value="">Todas</option>
+                            <option value="alta">Alta</option>
+                            <option value="media">Média</option>
+                            <option value="baixa">Baixa</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="btn-clear-filters" style="margin-top: 1rem;">Limpar Filtros</button>
+            </div>
+
+            <!-- Formulário de Tarefa -->
+            <div class="task-form" id="task-form">
+                <h2>Criar Nova Tarefa</h2>
+                <form id="formTarefa" onsubmit="event.preventDefault(); Tarefas.adicionarOuAtualizar();">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-title">Título *</label>
+                            <input type="text" id="task-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-category">Categoria *</label>
+                            <select id="task-category" required></select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-priority">Prioridade</label>
+                            <select id="task-priority">
+                                <option value="baixa">Baixa</option>
+                                <option value="media" selected>Média</option>
+                                <option value="alta">Alta</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-due-date">Data de Vencimento</label>
+                            <input type="date" id="task-due-date">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-description">Descrição</label>
+                        <textarea id="task-description" placeholder="Descreva sua tarefa..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="document.getElementById('formTarefa').reset();">Limpar</button>
+                        <button type="submit" class="btn btn-primary" id="btn-add-task">Adicionar Tarefa</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Lista de Tarefas -->
+            <div id="tasks-list">
+                <!-- Preenchido por JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script src="js/storage.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/tarefas.js"></script>
+</body>
+</html>
