@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - Task Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/relatorios.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">📋 Task Manager</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="tarefas.html">Tarefas</a></li>
+                        <li><a href="categorias.html">Categorias</a></li>
+                        <li><a href="relatorios.html">Relatórios</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="relatorios-header">
+                <h1>Relatórios e Análises</h1>
+                <p>Visualize estatísticas detalhadas sobre suas tarefas</p>
+            </div>
+
+            <!-- Filtros -->
+            <div class="relatorios-filters">
+                <div class="filters-grid">
+                    <div class="form-group">
+                        <label for="filter-period">Período</label>
+                        <select id="filter-period">
+                            <option value="todos">Todos</option>
+                            <option value="hoje">Hoje</option>
+                            <option value="semana">Últimos 7 dias</option>
+                            <option value="mes">Último mês</option>
+                            <option value="trimestre">Último trimestre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="filter-category">Categoria</label>
+                        <select id="filter-category">
+                            <option value="">Todas</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button class="btn btn-primary" id="btn-export-csv">📥 Exportar CSV</button>
+                    <button class="btn btn-secondary" id="btn-export-json">📥 Exportar JSON</button>
+                    <button class="btn btn-info" id="btn-print">🖨️ Imprimir</button>
+                </div>
+            </div>
+
+            <!-- Estatísticas -->
+            <div class="relatorio-stats" id="stats-container">
+                <!-- Preenchido por JavaScript -->
+            </div>
+
+            <!-- Gráficos -->
+            <div id="chart-container">
+                <!-- Preenchido por JavaScript -->
+            </div>
+
+            <!-- Tabela de Dados -->
+            <h2 style="margin-top: 2rem; margin-bottom: 1rem;">Detalhes das Tarefas</h2>
+            <div id="table-container">
+                <!-- Preenchido por JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script src="js/storage.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/relatorios.js"></script>
+</body>
+</html>
