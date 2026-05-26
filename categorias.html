@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias - Task Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/categorias.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">📋 Task Manager</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="tarefas.html">Tarefas</a></li>
+                        <li><a href="categorias.html">Categorias</a></li>
+                        <li><a href="relatorios.html">Relatórios</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="categorias-header">
+                <h1>Gerenciar Categorias</h1>
+                <div>
+                    <div class="view-toggle" id="view-toggle" style="display: flex; gap: 0.5rem;">
+                        <button class="btn btn-small btn-primary active" data-view="grid">📊 Grid</button>
+                        <button class="btn btn-small btn-secondary" data-view="list">📋 Lista</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulário de Categoria -->
+            <div class="category-form">
+                <h2>Criar Nova Categoria</h2>
+                <form id="category-form" onsubmit="event.preventDefault();">
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="category-name">Nome da Categoria *</label>
+                            <input type="text" id="category-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category-color">Cor</label>
+                            <div class="color-picker-group">
+                                <input type="color" id="category-color" value="#6366f1">
+                                <span id="color-preview" style="width: 50px; height: 50px; border-radius: 0.375rem; background-color: #6366f1; border: 1px solid var(--border-color);"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category-description">Descrição</label>
+                        <textarea id="category-description" placeholder="Descreva sua categoria..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="document.getElementById('category-form').reset(); document.getElementById('category-color').value = '#6366f1'; document.getElementById('color-preview').style.backgroundColor = '#6366f1';">Limpar</button>
+                        <button type="submit" class="btn btn-primary" id="btn-add-category">Adicionar Categoria</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Container de Categorias -->
+            <div id="categories-container">
+                <!-- Preenchido por JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Atualizar preview de cor
+        document.getElementById('category-color')?.addEventListener('change', function(e) {
+            document.getElementById('color-preview').style.backgroundColor = e.target.value;
+        });
+    </script>
+
+    <script src="js/storage.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/categorias.js"></script>
+</body>
+</html>
